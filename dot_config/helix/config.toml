@@ -1,0 +1,80 @@
+theme = "material_darker"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[keys.normal."backspace"]
+g = ":sh wezterm cli split-pane --right --percent 40 lazygit"
+w = ":toggle-option soft-wrap.enable"
+c = ":config-open"
+l = ":o ~/.config/helix/languages.toml"
+e = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+
+[keys.normal]
+H = "extend_to_first_nonwhitespace"
+L = "extend_to_line_end"
+R = "replace"
+r = "replace_selections_with_clipboard"
+'}' = "goto_next_paragraph"
+'{' = "goto_prev_paragraph"
+'-' = "decrement"
+'+' = "increment"
+"'" = [":format", ":write"]
+
+[keys.select]
+H = "extend_to_first_nonwhitespace"
+L = "extend_to_line_end"
+R = "replace"
+r = "replace_selections_with_clipboard"
+'}' = "goto_next_paragraph"
+'{' = "goto_prev_paragraph"
+'-' = "decrement"
+'+' = "increment"
+"'" = [":format", ":write"]
+
+[keys.normal.g]
+s = "goto_line_start"
+h = "goto_first_nonwhitespace"
+
+[keys.normal.m]
+w = "@miw"
+W = "@miW"
+p = "@map"
+t = "@mit"
+f = "@mif"
+c = "@mic"
+T = "@miT"
+e = "@mie"
+g = "@mig"
+"(" = "@mi("
+")" = "@mi)"
+"{" = "@mi{"
+"}" = "@mi}"
+"[" = "@mi["
+"]" = "@mi]"
+"'" = "@mi'"
+'"' = '@mi"'
+'q' = '@mi"'
+
+[editor]
+true-color = true
+scrolloff = 8
+bufferline = "always"
+color-modes = true
+jump-label-alphabet = "aeiounrtsgbldwjzxmcv"
+rulers = [80]
+auto-pairs = false
+default-yank-register = "+"
+
+[editor.lsp]
+display-messages = true
+
+[editor.indent-guides]
+render = true
+character = "|"
