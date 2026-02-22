@@ -24,8 +24,8 @@ config.default_cursor_style = "SteadyBar"
 
 -- Full screen on startup
 wezterm.on("gui-startup", function()
-  local tab, pane, window = mux.spawn_window {}
-  window:gui_window():maximize()
+    local tab, pane, window = mux.spawn_window {}
+    window:gui_window():maximize()
   if not host_os == "linux" then
     window:gui_window():setposition(0, 0)
   end
@@ -85,10 +85,10 @@ config.keys = {
   { key = "l", mods = "LEADER",   action = act.ActivatePaneDirection "Right", },
   { key = "L", mods = "LEADER",   action = act.RotatePanes "Clockwise" },
   { key = "H", mods = "LEADER",   action = act.RotatePanes "CounterClockwise", },
-  { key = "q", mods = "LEADER",   action = act.CloseCurrentPane { confirm = false } },
+  { key = "q", mods = "LEADER",   action = act.CloseCurrentPane { confirm = true } },
   { key = "r", mods = "LEADER",   action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false, }, },
   -- Copy/Paste
-  { key = "c", mods = mod_ctrl(), action = act.DisableDefaultAssignment },
+  { key = "c", mods = mod_ctrl(), action = act.CopyTo "Clipboard" },
   { key = "v", mods = mod_ctrl(), action = act.PasteFrom "Clipboard" },
   { key = "f", mods = mod_ctrl(), action = act.Search({ CaseInSensitiveString = '' }) },
   -- Navigation
@@ -129,5 +129,19 @@ config.key_tables = {
 
 -- Scrollback
 config.scrollback_lines = 10000
+
+-- Change mouse scroll amount
+config.mouse_bindings = {
+  {
+    event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+    mods = 'NONE',
+    action = act.ScrollByLine(-3),
+  },
+  {
+    event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+    mods = 'NONE',
+    action = act.ScrollByLine(3),
+  },
+}
 
 return config

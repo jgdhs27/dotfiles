@@ -1,7 +1,4 @@
 [
-    
-    Normal mode (hx)
-    
     {
         "key": "g",
         "command": "dance.openMenu",
@@ -570,7 +567,7 @@
     {
         "key": "ctrl+t",
         "command": "workbench.action.terminal.new",
-        "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+        "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
     },
     {
         "key": "ctrl+shift+`",
@@ -591,4 +588,8 @@
         "command": "-workbench.action.terminal.killActiveTab",
         "when": "terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
     }
+
+
+
+
 ]

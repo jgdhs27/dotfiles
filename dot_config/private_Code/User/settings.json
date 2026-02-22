@@ -24,7 +24,6 @@
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.simpleDialog.enable": true,
-    "workbench.sash.size": 20,
     "workbench.editor.centeredLayoutAutoResize": false,
     "workbench.editor.centeredLayoutFixedWidth": true,
     "workbench.editor.enablePreview": false,
@@ -33,7 +32,6 @@
     "search.smartCase": true,
     "terminal.integrated.rightClickBehavior": "default",
     "telemetry.telemetryLevel": "off",
-    "workbench.colorTheme": "Dobri Next -C04- Material",
     "flake8.args": [
         "--ignore=E501"
     ],
@@ -966,7 +964,11 @@
                 "k": {
                     "text": "Kilo code",
                     "command": "workbench.view.extension.kilo-code-ActivityBar"
-                }
+                },
+                "t": {
+                    "text": "Testing",
+                    "command": "workbench.view.extension.test"
+                }                
             }
         },
         "leader-hx": {
@@ -1133,7 +1135,6 @@
             }
         }
     },
-    "workbench.activityBar.location": "hidden",
     "editor.fontFamily": "'MesloLGM Nerd Font', 'Courier New', monospace",
     "workbench.startupEditor": "none",
     "[javascript]": {
@@ -1209,5 +1210,11 @@
         "yarn test:unit src/Frontend/Components/AttributionPanels/AttributionsPanel/MoreActionsButton/__tests__/MoreActionsButton.test.tsx"
     ],
     "kilo-code.deniedCommands": [],
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "renpyWarp.renpyExtensionsEnabled": "Enabled",
+    "workbench.colorTheme": "Dobri Next -C04- Material",
+    "[csharp]": {
+        "editor.defaultFormatter": "csharpier.csharpier-vscode"
+    },
+    "workbench.activityBar.location": "hidden"
 }
